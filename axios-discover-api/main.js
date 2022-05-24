@@ -8,11 +8,21 @@ function getUsers() {
     .catch(error => console.error(error))
 }
 
+getUsers()
+
 function addnewUser(newUser) {
   axios.post(url, newUser)
     .then(response => console.log(response))
     .catch(error => console.error(error))
 }
+
+const newUser = {
+  name: 'Diego Camara',
+  avatar: 'http://picsum.photos/200/300',
+  city: 'Esperança'
+}
+
+// addnewUser()
 
 function getUser(id) {
   axios.get(`${url}/${id}`)
@@ -25,14 +35,18 @@ function getUser(id) {
     .catch(error => console.error(error))
 }
 
-getUsers()
+getUser(2)
 
-const newUser = {
-  name: 'Diego Camara',
-  avatar: 'http://picsum.photos/200/300',
-  city: 'Esperança'
+function updateUser(id, userUpdated) {
+  axios.put(`${url}/${id}`, userUpdated)
+    .then(response => console.log(response))
+    .catch(error => console.error(error))
 }
 
-// addnewUser()
+const userUpdated = {
+  name: 'Peulo Souza',
+  avatar: 'http://picsum.photos/200/300',
+  city: 'Recife'
+}
 
-getUser(2)
+updateUser(3)
