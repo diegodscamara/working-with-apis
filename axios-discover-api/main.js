@@ -35,7 +35,7 @@ function getUser(id) {
     .catch(error => console.error(error))
 }
 
-getUser(2)
+getUser(1)
 
 function updateUser(id, userUpdated) {
   axios.put(`${url}/${id}`, userUpdated)
@@ -50,3 +50,11 @@ const userUpdated = {
 }
 
 updateUser(3)
+
+function deleteUser(id) {
+  axios.delete(`${url}/${id}`)
+    .then(response => console.log(response))
+    .catch(error => console.error(error))
+}
+
+deleteUser(9)
