@@ -4,6 +4,10 @@ const app = express()
 
 app.listen('3000')
 
-app.route('/:identificador').delete((req, res) => {
-  res.send(req.params.identificador)
+//middleware
+app.use(express.json())
+
+app.route('/').post((req, res) => {
+  const { nome, cidade, livros } = req.body
+  res.send(`Meu nome é ${nome} e minha cidade é ${cidade} e meus livros são ${livros}`)
 })
